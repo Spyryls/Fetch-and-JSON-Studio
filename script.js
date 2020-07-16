@@ -6,7 +6,7 @@
           console.log(json);
 
           for (let i; i < json.length; i++) {
-            let info = `
+            container.innerHTML += `
               <div class="astronaut">
                 <div class="bio">
                   <h3>${json[i].firstName} ${json[i].lastName}</h3>
@@ -20,10 +20,9 @@
               </div>
             `;
           }
-        container.innerHTML += astronauts;
+        });
       });
-    });
-   }
+    }
 
   window.onload = init;
   
