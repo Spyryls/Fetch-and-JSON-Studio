@@ -4,24 +4,26 @@
         response.json().then(function (json) {
           let container = document.getElementById('#container');
           console.log(json);
-          let astronauts = '';
+
           for (let i; i < json.length; i++) {
             let info = `
               <div class="astronaut">
-              <h3>${json[i].firstName} ${json[i].lastName}</h3>
-              <ul>   
-                  <li>Hours in space: ${astronaut.hoursInSpace}</li>
-                  <li>Active: ${astronaut.active}</li>
-                  <li>Skills: ${astronaut.skills.join(", ")}</li>
-              </ul>
-                <img class="avatar" src="images/${astronaut.picture}"/>
+                <div class="bio">
+                  <h3>${json[i].firstName} ${json[i].lastName}</h3>
+                <ul>   
+                  <li>Hours in space: ${json[i].hoursInSpace}</li>
+                  <li>Active: ${json[i].active}</li>
+                  <li>Skills: ${json[i].skills.join(", ")}</li>
+                </ul>
+                  <img class="avatar" src="images/${json[i].picture}"/>
+                </div>
               </div>
             `;
-          astronauts += info
-        }
-        container.innerHTML = astronauts;
+          }
+        container.innerHTML += astronauts;
       });
     });
-  }
+   }
+
   window.onload = init;
   
