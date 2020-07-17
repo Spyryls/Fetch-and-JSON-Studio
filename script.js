@@ -4,14 +4,14 @@
     
         response.json().then(function (json) {
 
-          console.log(json);
+          let count = document.getElementById("count");
+          count.innerHTML = "Number of Astronauts: " + json.length;
 
           for (i in json) {
             let activeColor = "red";
             if (json[i].active) {
-              activeColor = "green"
+              activeColor = "green" 
             }
-
             container.innerHTML += `
               <div class="astronaut">
                 <div class="bio">
